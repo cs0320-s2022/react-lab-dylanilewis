@@ -1,13 +1,14 @@
 import React from 'react';
-import logo from './logo.svg';
+import './App.css';
 
-function TextBox(props: { label: string; change: (val: string) => void }) {
+export default function TextBox(props : {
+    label : string,
+    change : React.Dispatch<React.SetStateAction<string>>}) {
+
     return (
         <div>
-            <label>{props.label}</label>
-            <input type={'text'} onChange={(changed) => props.change(changed.target.value)} />
+            {props.label}:
+            <input type={"text"} onChange={event => props.change(event.target.value)}/>
         </div>
     );
 }
-
-export default TextBox;
